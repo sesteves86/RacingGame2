@@ -1,0 +1,281 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+
+namespace RacingGame
+{
+    class SplashMenu
+    {
+        Texture2D texture;
+        Rectangle rectangle;
+        bool pressedKey = false;
+        int timer = 0;
+        public bool isFinished = false;
+        Color filterColor;
+        
+
+        public SplashMenu(Texture2D newTexture)
+        {
+            texture = newTexture;
+            rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if(pressedKey)
+                timer += gameTime.ElapsedGameTime.Milliseconds;
+
+            if (timer > 200)
+            {
+                isFinished = true;
+                timer = 0;
+                pressedKey = false;
+            }
+
+            var k = Keyboard.GetState().GetPressedKeys();
+            if ( k.Length>0 && pressedKey==false)
+            {
+                pressedKey = true;
+                timer = 0;
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            filterColor = new Color(255, 255, 255, (1 - timer / 200f)); //Fade off effect
+            spriteBatch.Draw(texture, rectangle, filterColor);
+        }
+    }
+
+    class StartMenu
+    {
+        Texture2D texture;
+        Texture2D selectorTexture;
+        Rectangle rectangle;
+        Rectangle selectorRectangle;
+        SpriteFont font;
+        public int cursorPosition = 1;
+        bool isSelected=true;
+        public bool isFinished = false;
+        bool isKeyPressed = false;
+        int timer = 0;
+
+        public StartMenu(Texture2D newTexture, Texture2D newSelectorTexture, SpriteFont newFont)
+        {
+            font = newFont;
+            texture = newTexture;
+            selectorTexture = newSelectorTexture;
+            rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if (!isKeyPressed)
+            {
+                if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                {
+                    isKeyPressed = true;
+                    cursorPosition += 2;
+                    if (cursorPosition > 3) cursorPosition = 3;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                {
+                    isKeyPressed = true;
+                    cursorPosition -= 2;
+                    if (cursorPosition < 1) cursorPosition = 1;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                {
+                    isKeyPressed = true;
+                    isSelected = true;
+                }
+            }
+            else //if key was pressed
+            {
+                if (isSelected) //if it was enter
+                {
+                    timer += gameTime.ElapsedGameTime.Milliseconds;
+                    if (timer > 200)
+                    {
+                        isFinished = true;
+                        isSelected = false;
+                        timer = 0;
+                        isKeyPressed = false;
+                    }
+                }
+                else // Help moving just 1 key at a time when a button is pressed
+                {
+                    timer += gameTime.ElapsedGameTime.Milliseconds;
+                    if (timer > 10)
+                    {
+                        timer = 0;
+                        isKeyPressed = false;
+                    }
+                }
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, rectangle, Color.White); //Background
+
+            //Draw Selector
+            selectorRectangle = new Rectangle(190,100*cursorPosition-5,160, 40);
+            spriteBatch.Draw(selectorTexture, selectorRectangle, Color.Gray);
+
+            //Draw text
+            spriteBatch.DrawString(font, "Quick Race", new Vector2(200f, 100f), Color.Yellow);
+            spriteBatch.DrawString(font, "Championship", new Vector2(200f, 200f), Color.Gray);
+            spriteBatch.DrawString(font, "Credits", new Vector2(200f, 300f), Color.Yellow);
+
+            //selectorRectangle = new Rectangle(180,100*cursorPosition-20,150, 3);
+            //spriteBatch.Draw(selectorTexture,selectorRectangle, Color.White);
+        }    
+    }
+
+    class Credits
+    {
+        Texture2D backgroundTexture;
+        SpriteFont font;
+        public bool isKeyPressed;
+        public bool isFinished = false;
+        int finisherTimer = 0;
+
+        public Credits(Texture2D newTexture, SpriteFont newFont)
+        {
+            backgroundTexture = newTexture;
+            font = newFont;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if (isKeyPressed)
+                finisherTimer += gameTime.ElapsedGameTime.Milliseconds;
+
+            if (finisherTimer > 100)
+            {
+                isFinished = true;
+                finisherTimer = 0;
+                isKeyPressed = false;
+            }
+
+            if (Keyboard.GetState().GetPressedKeys().Length > 0) // if any key pressed
+            {
+                isKeyPressed = true;
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 800, 600), Color.White);
+            
+            spriteBatch.DrawString(font, "Credits", new Vector2(200, 50), Color.Yellow);
+            spriteBatch.DrawString(font, "Sergio Esteves", new Vector2(220, 150), Color.Yellow);
+
+            spriteBatch.DrawString(font, "Press any key to continue", new Vector2(300, 450), Color.Yellow);
+        }
+    }
+
+    class PreRaceMenu
+    {
+        Texture2D backgroundTexture;
+        Texture2D selectorTexture;
+        Color trackSelectedColor;
+        int cursorTrack=1;
+        int cursorY=1;
+
+        Keys lastKeyPressed;
+        public bool wasEnterKeyPressed = false;
+        //int keyPressedTimer = 0;
+        //const int maxTimeKeyPressed;
+        const int numberOfTracks = 3;
+
+        SpriteFont font;
+
+        public PreRaceMenu(Texture2D newBackgroundTexture, Texture2D newSelectorTexture,SpriteFont newFont)
+        {
+            backgroundTexture = newBackgroundTexture;
+            selectorTexture = newSelectorTexture;
+            font = newFont;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && lastKeyPressed != Keys.Right)
+            {
+                lastKeyPressed = Keys.Right;
+                if (cursorY == 1)
+                {
+                    cursorTrack += 1;
+                    if (cursorTrack > numberOfTracks)
+                        cursorTrack = numberOfTracks;
+                }
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Left) && lastKeyPressed != Keys.Left)
+            {
+                lastKeyPressed = Keys.Left;
+                if (cursorY == 1)
+                {
+                    cursorTrack -= 1;
+                    if (cursorTrack <1)
+                        cursorTrack = 1;
+                }
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Up) && lastKeyPressed != Keys.Up)
+            {
+                cursorY -= 1;
+                lastKeyPressed = Keys.Up;
+                if (cursorY <1) cursorY = 1;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Down) && lastKeyPressed != Keys.Down)
+            {
+                cursorY += 1;
+                lastKeyPressed = Keys.Down;
+                if (cursorY >2) cursorY = 2;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
+                lastKeyPressed = Keys.Enter;
+                wasEnterKeyPressed = true;
+            }
+            else
+            {
+                lastKeyPressed = Keys.Q;
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, 800, 600), Color.White);
+
+            //Draw cursor
+            if (cursorY == 1)
+            {
+                trackSelectedColor = new Color(200, 200, 100);
+            }
+            else
+            {
+                trackSelectedColor = new Color(60, 60, 60);
+                spriteBatch.Draw(selectorTexture, new Rectangle(200, 300, 100, 50), Color.White);
+            }
+
+            spriteBatch.Draw(selectorTexture, new Rectangle(cursorTrack * 100 - 25, 170, 80, 50), trackSelectedColor);
+
+            //Draw Text
+            spriteBatch.DrawString(font, "Tracks", new Vector2(100, 50), Color.Yellow);
+            spriteBatch.DrawString(font, "Track 1", new Vector2(80, 180), Color.Yellow);
+            spriteBatch.DrawString(font, "Track 2", new Vector2(180, 180), Color.Yellow);
+            spriteBatch.DrawString(font, "Track 3", new Vector2(280, 180), Color.Yellow);
+
+            spriteBatch.DrawString(font, "Start", new Vector2(200, 300), Color.Yellow);
+
+            
+
+            
+        }
+    }
+}

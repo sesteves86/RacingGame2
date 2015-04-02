@@ -1,0 +1,26 @@
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarRed.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack1.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\RacingGame.exe
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\RacingGame.pdb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\obj\x86\Debug\RacingGame.csprojResolveAssemblyReference.cache
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\obj\x86\Debug\RacingGame.exe
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\obj\x86\Debug\RacingGame.pdb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\Content\SplashScreen.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\Content\Racing Menu Background.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGame\bin\x86\Debug\Content\Yellow Pixel.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\obj\x86\Debug\RacingGame.csprojResolveAssemblyReference.cache
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\obj\x86\Debug\RacingGame.exe
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\obj\x86\Debug\RacingGame.pdb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarRed.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack1.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\SplashScreen.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\Racing Menu Background.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\Yellow Pixel.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\RacingGame.exe
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\RacingGame.pdb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarBlue.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarOrange.xnb
