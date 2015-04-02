@@ -44,7 +44,7 @@ namespace RacingGame
         List<CarVariables> carVariablesList = new List<CarVariables>();
         List<ICar> carList;
 
-        public RacingController( GraphicsDevice newGraphicsDevice, SpriteFont newFont, Texture2D newTrackTexture, Texture2D newYellowPixelTexture) //Texture2D newTexture, , 
+        public RacingController(  SpriteFont newFont,  Texture2D newYellowPixelTexture) //Texture2D newTexture, , 
         {
             yellowPixelTexture = newYellowPixelTexture;
 
@@ -52,13 +52,17 @@ namespace RacingGame
 
             //Initializing other variables
             font = newFont;
+        }
+
+        public void AddTrack(GraphicsDevice newGraphicsDevice, Texture2D newTrackSprite)
+        {
+            //Trying to pass circuitTexture to Color[,] and then compare car position with color2D to do the onWall() and onGrass() checks
+            trackTexture = newTrackSprite;
+
             graphicsDevice = newGraphicsDevice;
             viewport = graphicsDevice.Viewport;
             Color[] colorBackground = new Color[2000 * 2000];
             camera = new Camera(newGraphicsDevice.Viewport);
-
-            //Trying to pass circuitTexture to Color[,] and then compare car position with color2D to do the onWall() and onGrass() checks
-            trackTexture = newTrackTexture;
             trackTexture.GetData<Color>(colorBackground);
             for (int i = 0; i < 2000; i++)
             {
@@ -67,7 +71,6 @@ namespace RacingGame
                     color2d[i, j] = colorBackground[i + j * 2000];
                 }
             }
-
         }
 
         public void AddCar(Texture2D newTexture, ICar car)
@@ -115,7 +118,8 @@ namespace RacingGame
                 car.lapTime += gameTime.ElapsedGameTime.Milliseconds;
             }
 
-            //Ensure that the game updates constantly at the same rate (About 100 FPS)
+            // Movement Logic
+            // Ensure that the game updates constantly at the same rate (About 100 FPS)
             if (gameTime.ElapsedGameTime.Milliseconds + cumulativeTime < 10)
             {
                 cumulativeTime += gameTime.ElapsedGameTime.Milliseconds;
@@ -123,8 +127,9 @@ namespace RacingGame
             else
             {
                 cumulativeTime = 0;
-                foreach (ICar car in carList)
+                foreach (ICar car in carList) //Update Logic for each car
                 {
+                    //Only allow players to perform updates each 0.01s to prevent overloading the computer
                     timer += gameTime.ElapsedGameTime.Milliseconds;
                     if (timer > TIMER_RESET)
                     {
@@ -167,7 +172,7 @@ namespace RacingGame
                         if (carVariablesList[car.id].normalSpeed < MIN_SPEED)
                             carVariablesList[car.id].normalSpeed = MIN_SPEED;
                     }
-                    else
+                    else //If not accelerating or breaking
                     {
                         double tSpeed = Math.Exp(carVariablesList[car.id].normalSpeed);
                         if (carVariablesList[car.id].normalSpeed < 0.001f)
@@ -175,6 +180,7 @@ namespace RacingGame
                         else
                             carVariablesList[car.id].normalSpeed /= SPEED_REDUCTION;
                     }
+
                     if (car.IsTurningLeft)
                     {
                         if (carVariablesList[car.id].onRoad)
@@ -184,7 +190,7 @@ namespace RacingGame
                             else
                                 carVariablesList[car.id].turning -= TURN_SPEED;
                         }
-                        else
+                        else //on grass
                         {
                             if (carVariablesList[car.id].normalSpeed < 0)
                                 carVariablesList[car.id].turning += TURN_SPEED / ON_GRASS_MODIFIER;

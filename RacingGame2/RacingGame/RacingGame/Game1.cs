@@ -21,7 +21,7 @@ namespace RacingGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         //PlayerCar car;
-        Texture2D backgroundTexture;
+        Texture2D[] raceTrackSprite = new Texture2D[10];
         Vector2 backgroundPosition;
         Texture2D yellowPixelTexture;
         Texture2D redCarTexture;
@@ -52,6 +52,9 @@ namespace RacingGame
         Credits credits;
         PreRaceMenu preRaceMenu;
         RacingController racingController;
+
+        //Track variables
+        int trackNumber;
 
         //Update variables
         //int timer = 0;
@@ -87,7 +90,10 @@ namespace RacingGame
             //Font
             font = Content.Load<SpriteFont>("SpriteFont1");
             
-            backgroundTexture = Content.Load<Texture2D>("RacingTrack1");
+            raceTrackSprite[0] = Content.Load<Texture2D>("RacingTrack1");
+            raceTrackSprite[1] = Content.Load<Texture2D>("RacingTrack2");
+            raceTrackSprite[2] = Content.Load<Texture2D>("RacingTrack3");
+
             backgroundPosition = new Vector2(-400, 0);
             redCarTexture = Content.Load<Texture2D>("RacingCarRed");
             orangeCarTexture = Content.Load<Texture2D>("RacingCarOrange");
@@ -105,10 +111,12 @@ namespace RacingGame
             preRaceMenu = new PreRaceMenu(textureStartMenu, yellowPixelTexture, font);
             List<ICar> carList = new List<ICar>();
             //carList.Add(new PlayerCar(0));
-            racingController = new RacingController(GraphicsDevice, font, backgroundTexture, yellowPixelTexture);
+            racingController = new RacingController(font,  yellowPixelTexture);
             racingController.AddCar(redCarTexture, new PlayerCar(0));
             racingController.AddCar(blueCarTexture, new AICar(1));
             racingController.AddCar(orangeCarTexture, new AICar(2));
+            racingController.AddCar(blueCarTexture, new AICar(3));
+            racingController.AddCar(orangeCarTexture, new AICar(4));
         }
 
         /// <summary>
@@ -168,8 +176,10 @@ namespace RacingGame
                     break;
                 case GameMenu.PreRaceMenu:
                     preRaceMenu.Update(gameTime);
-                    if (preRaceMenu.wasEnterKeyPressed)
+                    if (preRaceMenu.isReady)
                     {
+                        trackNumber = preRaceMenu.cursorTrack-1;
+                        racingController.AddTrack(GraphicsDevice, raceTrackSprite[trackNumber]);
                         gameMenu = GameMenu.Racing;
                     }
                     break;

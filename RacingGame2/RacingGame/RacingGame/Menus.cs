@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Threading;
 
 namespace RacingGame
 {
@@ -59,10 +60,17 @@ namespace RacingGame
         Rectangle selectorRectangle;
         SpriteFont font;
         public int cursorPosition = 1;
-        bool isSelected=true;
+
+        //Keyboard logic
+        //bool isSelected=false;
         public bool isFinished = false;
         bool isKeyPressed = false;
         int timer = 0;
+
+        //Keys lastKeyPressed;
+        bool wasEnterKeyPressed = false;
+        bool wasUpKeyPressed = false;
+        bool wasDownKeyPressed = false;
 
         public StartMenu(Texture2D newTexture, Texture2D newSelectorTexture, SpriteFont newFont)
         {
@@ -74,20 +82,43 @@ namespace RacingGame
 
         public void Update(GameTime gameTime)
         {
-            if (!isKeyPressed)
+            var keyboard = Keyboard.GetState();
+
+            if (keyboard.IsKeyDown(Keys.Down) && !wasDownKeyPressed)
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                {
-                    isKeyPressed = true;
-                    cursorPosition += 2;
-                    if (cursorPosition > 3) cursorPosition = 3;
-                }
-                if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                {
-                    isKeyPressed = true;
-                    cursorPosition -= 2;
-                    if (cursorPosition < 1) cursorPosition = 1;
-                }
+                wasDownKeyPressed = true;
+                cursorPosition += 2;
+                if (cursorPosition > 3) cursorPosition = 3;
+            }
+            if (!keyboard.IsKeyDown(Keys.Down))
+            {
+                wasDownKeyPressed = false;
+            }
+            if (keyboard.IsKeyDown(Keys.Up) && !wasUpKeyPressed)
+            {
+                wasUpKeyPressed = true;
+                cursorPosition -= 2;
+                if (cursorPosition <1) cursorPosition = 1;
+            }
+            if (!keyboard.IsKeyDown(Keys.Up))
+            {
+                wasUpKeyPressed = false;
+            }
+            if (keyboard.IsKeyDown(Keys.Enter) && !wasEnterKeyPressed)
+            {
+                wasEnterKeyPressed = true;
+                
+            }
+            if (!keyboard.IsKeyDown(Keys.Enter) && wasEnterKeyPressed)
+            {
+                wasEnterKeyPressed = false;
+                Thread.Sleep(500);
+                isFinished = true;
+            }
+
+            /*if (!isKeyPressed)
+            {
+                
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
                     isKeyPressed = true;
@@ -116,7 +147,7 @@ namespace RacingGame
                         isKeyPressed = false;
                     }
                 }
-            }
+            }*/
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -182,14 +213,20 @@ namespace RacingGame
 
     class PreRaceMenu
     {
+        //output
+        public bool isReady = false;
         Texture2D backgroundTexture;
         Texture2D selectorTexture;
         Color trackSelectedColor;
-        int cursorTrack=1;
+        public int cursorTrack=1;
         int cursorY=1;
 
-        Keys lastKeyPressed;
-        public bool wasEnterKeyPressed = false;
+        //Keys lastKeyPressed;
+        bool wasEnterKeyPressed = false;
+        bool wasRightKeyPressed = false;
+        bool wasLeftKeyPressed = false;
+        bool wasUpKeyPressed = false;
+        bool wasDownKeyPressed = false;
         //int keyPressedTimer = 0;
         //const int maxTimeKeyPressed;
         const int numberOfTracks = 3;
@@ -205,9 +242,12 @@ namespace RacingGame
 
         public void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && lastKeyPressed != Keys.Right)
+            #region Pressed Keyboard keys 
+            var keyboard = Keyboard.GetState();
+            //Right
+            if (keyboard.IsKeyDown(Keys.Right) && !wasRightKeyPressed)
             {
-                lastKeyPressed = Keys.Right;
+                wasRightKeyPressed = true;
                 if (cursorY == 1)
                 {
                     cursorTrack += 1;
@@ -215,9 +255,13 @@ namespace RacingGame
                         cursorTrack = numberOfTracks;
                 }
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Left) && lastKeyPressed != Keys.Left)
+            if (!keyboard.IsKeyDown(Keys.Right)){
+                wasRightKeyPressed=false;
+            }
+            //Left
+            if (keyboard.IsKeyDown(Keys.Left) && !wasLeftKeyPressed)
             {
-                lastKeyPressed = Keys.Left;
+                wasLeftKeyPressed = true;
                 if (cursorY == 1)
                 {
                     cursorTrack -= 1;
@@ -225,27 +269,41 @@ namespace RacingGame
                         cursorTrack = 1;
                 }
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Up) && lastKeyPressed != Keys.Up)
+            if (!keyboard.IsKeyDown(Keys.Left)){
+                wasLeftKeyPressed=false;
+            }
+            //Up
+            if (keyboard.IsKeyDown(Keys.Up) && !wasUpKeyPressed)
             {
+                wasUpKeyPressed = true;
                 cursorY -= 1;
-                lastKeyPressed = Keys.Up;
                 if (cursorY <1) cursorY = 1;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Down) && lastKeyPressed != Keys.Down)
+            if (!keyboard.IsKeyDown(Keys.Up))
+            {
+                wasUpKeyPressed = false;
+            }
+            //Down
+            if (keyboard.IsKeyDown(Keys.Down) && !wasDownKeyPressed)
             {
                 cursorY += 1;
-                lastKeyPressed = Keys.Down;
                 if (cursorY >2) cursorY = 2;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if (!keyboard.IsKeyDown(Keys.Down))
             {
-                lastKeyPressed = Keys.Enter;
+                wasDownKeyPressed = false;
+            }
+            //Enter
+            if (keyboard.IsKeyDown(Keys.Enter) && !wasEnterKeyPressed)
+            {
                 wasEnterKeyPressed = true;
             }
-            else
+            if (!keyboard.IsKeyDown(Keys.Enter) && wasEnterKeyPressed)
             {
-                lastKeyPressed = Keys.Q;
+                isReady = true;
+                wasEnterKeyPressed = false;
             }
+            #endregion
         }
 
         public void Draw(SpriteBatch spriteBatch)

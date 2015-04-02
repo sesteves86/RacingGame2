@@ -24,3 +24,5 @@ C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\Rac
 C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\RacingGame.pdb
 C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarBlue.xnb
 C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarOrange.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack2.xnb
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack3.xnb

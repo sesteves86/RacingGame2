@@ -73,6 +73,24 @@
       <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarOrange.xnb</Output>
       <Time>2015-03-26T20:22:58.2092216+00:00</Time>
     </Item>
+    <Item>
+      <Source>RacingTrack2.png</Source>
+      <Name>RacingTrack2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack2.xnb</Output>
+      <Time>2015-04-02T19:53:14.8588801+01:00</Time>
+    </Item>
+    <Item>
+      <Source>RacingTrack3.png</Source>
+      <Name>RacingTrack3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack3.xnb</Output>
+      <Time>2015-04-02T19:53:14.8608819+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
