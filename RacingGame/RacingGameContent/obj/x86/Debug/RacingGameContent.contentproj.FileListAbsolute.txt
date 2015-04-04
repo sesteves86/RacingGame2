@@ -1,0 +1,2 @@
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame\RacingGame\RacingGameContent\obj\x86\Debug\RacingGameContent.contentprojResolveAssemblyReference.cache
+C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGameContent\obj\x86\Debug\RacingGameContent.contentprojResolveAssemblyReference.cache

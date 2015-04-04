@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>RacingCarRed.png</Source>
+      <Name>RacingCarRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarRed.xnb</Output>
+      <Time>2015-03-06T19:50:09.9861314+00:00</Time>
+    </Item>
+    <Item>
+      <Source>RacingTrack1.png</Source>
+      <Name>RacingTrack1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack1.xnb</Output>
+      <Time>2015-03-06T19:50:09.9891344+00:00</Time>
+    </Item>
+    <Item>
+      <Source>SplashScreen.png</Source>
+      <Name>SplashScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\SplashScreen.xnb</Output>
+      <Time>2015-03-22T10:53:22.2468926+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Racing Menu Background.png</Source>
+      <Name>Racing Menu Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\Racing Menu Background.xnb</Output>
+      <Time>2015-03-22T21:59:15.4140905+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Yellow Pixel.png</Source>
+      <Name>Yellow Pixel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\Yellow Pixel.xnb</Output>
+      <Time>2015-03-22T22:25:47.8689663+00:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2015-03-06T22:15:34.7214936+00:00</Time>
+    </Item>
+    <Item>
+      <Source>RacingCarBlue.png</Source>
+      <Name>RacingCarBlue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarBlue.xnb</Output>
+      <Time>2015-03-26T20:22:58.221228+00:00</Time>
+    </Item>
+    <Item>
+      <Source>RacingCarOrange.png</Source>
+      <Name>RacingCarOrange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingCarOrange.xnb</Output>
+      <Time>2015-03-26T20:22:58.2092216+00:00</Time>
+    </Item>
+    <Item>
+      <Source>RacingTrack2.png</Source>
+      <Name>RacingTrack2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack2.xnb</Output>
+      <Time>2015-04-03T19:18:01.6694666+01:00</Time>
+    </Item>
+    <Item>
+      <Source>RacingTrack3.png</Source>
+      <Name>RacingTrack3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\RacingTrack3.xnb</Output>
+      <Time>2015-04-02T19:53:14.8608819+01:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\sergio\Documents\Visual Studio 2010\Projects\RacingGame2\RacingGame\RacingGame\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-02-07T17:06:49.5004156+00:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
